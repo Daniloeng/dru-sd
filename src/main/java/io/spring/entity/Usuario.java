@@ -43,9 +43,6 @@ public class Usuario {
         this.perfis = perfis;
     }
 
-    
-    
-    
     public String getNome() {
         return nome;
     }
