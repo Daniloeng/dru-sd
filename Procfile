@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar target/spring-dru-v1-1.0-SNAPSHOT.war -Dserver.port=$PORT -Xmx300m -Xss512k -XX:CICompilerCount=2 -Dfile.encoding=UTF-8 $JAR_OPTS
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/*.jar
