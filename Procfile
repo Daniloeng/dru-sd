@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -Xmx8192m -Xss512k -Dfile.encoding=UTF-8 -jar /app/tmp/cache/.m2/repository/io/spring/spring-dru-v1/1.0-SNAPSHOT/spring-dru-v1-1.0-SNAPSHOT.war --spring.profiles.active=prod,heroku
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar /target/spring-dru-v1-1.0-SNAPSHOT.war
