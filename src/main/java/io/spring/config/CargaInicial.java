@@ -62,7 +62,7 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
         //Deletar perfil ROLE_OREIA
         Perfil perfilOREIA = perfilRepository.findByNome("ROLE_OREIA");
         
-        if (perfilOREIA.getNome() == "ROLE_OREIA") {
+        if (perfilOREIA.getNome().isEmpty() == false) {
         	perfilRepository.delete(perfilOREIA.getId());
             perfilRepository.save(new Perfil("ROLE_OWNER"));   //Proprietário de DRU
             perfilRepository.save(new Perfil("ROLE_THIRD"));   //Terceiros (Ex: Conveniados)        	
