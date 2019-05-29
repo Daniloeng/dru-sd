@@ -18,6 +18,14 @@ public class DRU {
 	private String email;
 	
 	private String telefone;
+	
+    public DRU(String nome, String cpf, String endereco, String email, String telefone) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.email = email;
+        this.telefone = telefone;
+    }
 
 	public String getId() {
 		return id;
