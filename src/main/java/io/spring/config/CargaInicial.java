@@ -45,9 +45,6 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
         if (perfis.isEmpty()) {
         	
             perfilRepository.save(new Perfil("ROLE_ADMIN"));   //Administrador
-            //perfilRepository.save(new Perfil("ROLE_OREIA"));
-            perfilRepository.save(new Perfil("ROLE_OWNER"));   //Proprietário de DRU
-            perfilRepository.save(new Perfil("ROLE_THIRD"));   //Terceiros (Ex: Conveniados)
 
             Perfil perfilADMIN = perfilRepository.findByNome("ROLE_ADMIN");
 
@@ -59,16 +56,14 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 
         }
         
-        //Deletar perfil ROLE_OREIA
-        Perfil perfilOREIA = perfilRepository.findByNome("ROLE_OREIA");
+        //Adicionar novos perfil para funcionalidades do DRU
+        Perfil perfilADMIN = perfilRepository.findByNome("ROLE_ADMIN");
         
-        if (perfilOREIA.getNome().isEmpty() == false) {
-        	perfilRepository.delete(perfilOREIA.getId());
+        if (perfilADMIN.getNome().isEmpty() == false) {
             perfilRepository.save(new Perfil("ROLE_OWNER"));   //Proprietário de DRU
             perfilRepository.save(new Perfil("ROLE_THIRD"));   //Terceiros (Ex: Conveniados)        	
         }
-        
-        
+                
         //Carga Inicial - DRU
         List<DRU> docUnicos = druRepository.findAll();
         
