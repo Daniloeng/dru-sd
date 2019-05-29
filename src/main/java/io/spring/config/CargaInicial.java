@@ -69,6 +69,10 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
         
         if (docUnicos.isEmpty()) {
         	
+            //Adicionar novos perfil para funcionalidades do DRU
+            perfilRepository.save(new Perfil("ROLE_OWNER"));   //Proprietário de DRU
+            perfilRepository.save(new Perfil("ROLE_THIRD"));   //Terceiros (Ex: Conveniados)        	    	       	
+        	
         	//Criação de DRU
         	druRepository.save(new DRU("Gilson", "295.212.660-74", "CEP 12000-000", "gilsonsilva.cintra@gmail.com", "19992485023")); 
         	druRepository.save(new DRU("Danilo", "851.673.080-89", "CEP 12000-000", "daniloeng.ribeiro@gmail.com", "12982691615"));
