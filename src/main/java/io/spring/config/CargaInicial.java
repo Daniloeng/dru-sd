@@ -39,7 +39,7 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent e) {
 
-    	//Carga Inicial - Perfis
+    	//Carga Inicial - Usuario
         List<Perfil> perfis = perfilRepository.findAll();
 
         if (perfis.isEmpty()) {
@@ -52,18 +52,11 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 
             novosPerfis.add(perfilADMIN);
 
+            //Criação do usuário Administrador
             usuarioRepository.save(new Usuario("ADMIN", "admin", "123", novosPerfis));
 
         }
-        
-        //Adicionar novos perfil para funcionalidades do DRU
-        Perfil perfilADMIN = perfilRepository.findByNome("ROLE_ADMIN");
-        
-        if (perfilADMIN.getNome().isEmpty() == false) {
-            perfilRepository.save(new Perfil("ROLE_OWNER"));   //Proprietário de DRU
-            perfilRepository.save(new Perfil("ROLE_THIRD"));   //Terceiros (Ex: Conveniados)        	
-        }
-                
+                       
         //Carga Inicial - DRU
         List<DRU> docUnicos = druRepository.findAll();
         
