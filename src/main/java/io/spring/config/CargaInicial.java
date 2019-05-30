@@ -75,18 +75,24 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 
         	//Criação de usuários proprietários de DRU - Login igual o Email
             Perfil perfilOWNER = perfilRepository.findByNome("ROLE_OWNER");
+            Perfil perfilTHIRD = perfilRepository.findByNome("ROLE_THIRD");
 
             List<Perfil> novosPerfis = new ArrayList<>();
             
             novosPerfis.add(perfilOWNER);
-        	
-        	usuarioRepository.save(new Usuario("gilsonsilva.cintra@gmail.com", "gilsonsilva.cintra@gmail.com", "123", novosPerfis));
+
+            usuarioRepository.save(new Usuario("gilsonsilva.cintra@gmail.com", "gilsonsilva.cintra@gmail.com", "123", novosPerfis));
         	usuarioRepository.save(new Usuario("daniloeng.ribeiro@gmail.com", "daniloeng.ribeiro@gmail.com", "123", novosPerfis));
         	usuarioRepository.save(new Usuario("danisantosalves@gmail.com", "danisantosalves@gmail.com", "123", novosPerfis));
         	usuarioRepository.save(new Usuario("renanru_zao@hotmail.com", "renanru_zao@hotmail.com", "123", novosPerfis));
-        	usuarioRepository.save(new Usuario("joaojol@fab.mil.br", "joaojol@fab.mil.br", "123", novosPerfis));        	           
+        	usuarioRepository.save(new Usuario("joaojol@fab.mil.br", "joaojol@fab.mil.br", "123", novosPerfis));
+        	
+        	novosPerfis.clear();
+        	novosPerfis.add(perfilTHIRD);
+        	
+        	usuarioRepository.save(new Usuario("testeautomatizadosd@gmail.com", "testeautomatizadosd@gmail.com", "123", novosPerfis));
+	    	usuarioRepository.save(new Usuario("testeautomatizadosd1@gmail.com", "testeautomatizadosd1@gmail.com", "123", novosPerfis));
         }
-
     }
 
 }
