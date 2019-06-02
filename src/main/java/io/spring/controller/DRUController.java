@@ -28,6 +28,12 @@ public class DRUController {
     public DRU getById(@PathVariable String id) {
         return this.druService.getById(id);
     }
+    
+    //Adicionado por Gilson - 02-06-2019
+    @RequestMapping(value = "/dru/{cpf}", method = RequestMethod.GET)
+    public DRU getByCPF(@PathVariable String cpf) {
+        return this.druService.getByCPF(cpf);
+    }
 
     @RequestMapping(value = "/dru/{page}/{count}", method = RequestMethod.GET)
     public Page<DRU> listaPaginada(@PathVariable int page, @PathVariable int count) {

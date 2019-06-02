@@ -25,7 +25,7 @@ public class DRUService {
 	    public List<DRU> buscaPorNome(String nome) {
 	        return druRepository.findByNomeLikeIgnoreCase(nome);
 	    }
-
+	    
 	    public DRU salvarDRU(DRU druAdd) {
 	        return druRepository.save(druAdd);
 	    }
@@ -37,6 +37,11 @@ public class DRUService {
 	    public DRU getById(String id) {
 	        return druRepository.findOne(id);
 	    }
+	    
+	    //Adicionado por Gilson - 02-06-2019
+	    public DRU getByCPF(String cpf) {
+	        return druRepository.findOne(cpf);
+	    }	    
 
 		public List<DRU> listaDRU() {
 			 return druRepository.findAll();

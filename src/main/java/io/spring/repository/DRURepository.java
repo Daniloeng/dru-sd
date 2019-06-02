@@ -9,7 +9,7 @@ import io.spring.entity.DRU;
 public interface DRURepository extends MongoRepository<DRU, String> {
 
     List<DRU> findByNomeLikeIgnoreCase(String nome);
-    
+       
     DRU findByEmail(String email);
 
 }
