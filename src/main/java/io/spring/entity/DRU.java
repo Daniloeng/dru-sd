@@ -2,9 +2,10 @@ package io.spring.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.security.core.GrantedAuthority;
 
 @Document
-public class DRU {
+public class DRU implements GrantedAuthority {
 
 	@Id
     private String id;
@@ -74,5 +75,10 @@ public class DRU {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+    @Override
+    public String getAuthority() {
+        return nome;
+    }	
 	
 }
