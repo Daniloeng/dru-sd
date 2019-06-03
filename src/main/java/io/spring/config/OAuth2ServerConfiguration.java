@@ -56,6 +56,7 @@ public class OAuth2ServerConfiguration {
                     .and().authorizeRequests()
                     .antMatchers("/perfil/**").hasAnyRole("ADMIN, OWNER, THIRD")
                     .antMatchers("/usuario/**").hasAnyRole("ADMIN, OWNER, THIRD")
+                    .antMatchers("/dru/**").hasAnyRole("ADMIN, OWNER, THIRD")
                     .anyRequest().denyAll()
                     .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
         }
