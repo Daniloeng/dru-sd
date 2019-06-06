@@ -38,7 +38,6 @@ public class DRUService {
 	        return druRepository.findOne(id);
 	    }
 	    
-	    //Adicionado por Gilson - 02-06-2019
 	    public DRU getByCPF(String cpf) {
 	        return druRepository.findOne(cpf);
 	    }	    

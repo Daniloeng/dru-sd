@@ -26,7 +26,7 @@ public class DRU implements GrantedAuthority {
 	
 	private String sexo;
 	
-    public DRU(String nome, String cpf, String endereco, String email, String telefone) {
+    public DRU(String nome, String cpf, String endereco, String email, String telefone, String cidade, String uf, String sexo) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -36,30 +36,6 @@ public class DRU implements GrantedAuthority {
         this.uf = uf;
         this.sexo = sexo;
     }
-
-	public String getSexo() {
-		return sexo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
 
 	public String getId() {
 		return id;
@@ -107,6 +83,30 @@ public class DRU implements GrantedAuthority {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}	
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 	
     @Override
