@@ -72,6 +72,7 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
         	druRepository.save(new DRU("Daniel", "154.571.120-80", "CEP 12000-000", "danisantosalves@gmail.com", "12991065737", "São José dos Campos", "SP", "M"));
         	druRepository.save(new DRU("Renan", "376.689.950-30", "CEP 12000-000", "renanru_zao@hotmail.com", "12XXXXXXXXX", "São José dos Campos", "SP", "M"));
         	druRepository.save(new DRU("João Lemos", "120.709.000-02", "CEP 12000-000", "joaojol@fab.mil.br", "12YYYYYYYYY", "São José dos Campos", "SP", "M"));
+        	druRepository.save(new DRU("José Renato", "799.458.970-71", "CEP 12000-000", "renatojrna@fab.mil.br", "12YYYYYYYYY", "São José dos Campos", "SP", "M"));
 
         	//Criação de usuários proprietários de DRU - Login igual o Email
             Perfil perfilOWNER = perfilRepository.findByNome("ROLE_OWNER");
@@ -81,17 +82,20 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
             
             novosPerfis.add(perfilOWNER);
 
-            usuarioRepository.save(new Usuario("gilsonsilva.cintra@gmail.com", "gilsonsilva.cintra@gmail.com", "123", novosPerfis));
-        	usuarioRepository.save(new Usuario("daniloeng.ribeiro@gmail.com", "daniloeng.ribeiro@gmail.com", "123", novosPerfis));
-        	usuarioRepository.save(new Usuario("danisantosalves@gmail.com", "danisantosalves@gmail.com", "123", novosPerfis));
-        	usuarioRepository.save(new Usuario("renanru_zao@hotmail.com", "renanru_zao@hotmail.com", "123", novosPerfis));
-        	usuarioRepository.save(new Usuario("joaojol@fab.mil.br", "joaojol@fab.mil.br", "123", novosPerfis));
+            usuarioRepository.save(new Usuario("gilsonsilva.cintra@gmail.com", "gilsonsilva.cintra@gmail.com", "295.212.660-74", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("daniloeng.ribeiro@gmail.com", "daniloeng.ribeiro@gmail.com", "851.673.080-89", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("danisantosalves@gmail.com", "danisantosalves@gmail.com", "154.571.120-80", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("renanru_zao@hotmail.com", "renanru_zao@hotmail.com", "376.689.950-30", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("joaojol@fab.mil.br", "joaojol@fab.mil.br", "120.709.000-02", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("renatojrna@fab.mil.br", "renatojrna@fab.mil.br", "799.458.970-71", "123", novosPerfis));
+        	
         	
         	novosPerfis.clear();
         	novosPerfis.add(perfilTHIRD);
         	
-        	usuarioRepository.save(new Usuario("testeautomatizadosd@gmail.com", "testeautomatizadosd@gmail.com", "123", novosPerfis));
-	    	usuarioRepository.save(new Usuario("testeautomatizadosd1@gmail.com", "testeautomatizadosd1@gmail.com", "123", novosPerfis));
+        	usuarioRepository.save(new Usuario("testeautomatizadosd@gmail.com", "testeautomatizadosd@gmail.com", "415.489.470-67", "123", novosPerfis));
+	    	usuarioRepository.save(new Usuario("testeautomatizadosd1@gmail.com", "testeautomatizadosd1@gmail.com", "417.645.300-12", "123", novosPerfis));	    	
+	    	
         }
     }
 

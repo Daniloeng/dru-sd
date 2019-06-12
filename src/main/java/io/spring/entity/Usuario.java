@@ -24,7 +24,7 @@ public class Usuario {
     @DBRef
     private List<Perfil> perfis;
 
-    private int idade;
+    private int cpf;
 
     public Usuario() {
     }
@@ -34,13 +34,15 @@ public class Usuario {
         this.email = usuario.getEmail();
         this.senha = usuario.getSenha();
         this.perfis = usuario.getPerfis();
+        this.cpf = usuario.getCpf();
     }
 
-    public Usuario(String nome, String email, String senha, List<Perfil> perfis) {
+    public Usuario(String nome, String email, String cpf, String senha, List<Perfil> perfis) {
         this.nome = nome;
         this.email = email;
+        this.cpf = cpf;
         this.senha = senha;
-        this.perfis = perfis;
+        this.perfis = perfis;       
     }
 
     public String getNome() {
@@ -67,12 +69,12 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getCpf() {
+        return cpf;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setCpf(String cpf) {
+        this.idade = cpf;
     }
 
     public String getEmail() {
