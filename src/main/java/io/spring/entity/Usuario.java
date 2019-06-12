@@ -24,7 +24,7 @@ public class Usuario {
     @DBRef
     private List<Perfil> perfis;
 
-    private int cpf;
+    private String cpf;
 
     public Usuario() {
     }
