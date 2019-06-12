@@ -74,7 +74,7 @@ public class Usuario {
     }
 
     public void setCpf(String cpf) {
-        this.idade = cpf;
+        this.cpf = cpf;
     }
 
     public String getEmail() {
