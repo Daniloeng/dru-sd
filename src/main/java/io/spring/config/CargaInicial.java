@@ -53,7 +53,7 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
             novosPerfis.add(perfilADMIN);
 
             //Criação do usuário Administrador
-            usuarioRepository.save(new Usuario("ADMIN", "admin", "123", novosPerfis));
+            usuarioRepository.save(new Usuario("ADMIN", "admin", "0", "123", novosPerfis));
 
         }
                        
