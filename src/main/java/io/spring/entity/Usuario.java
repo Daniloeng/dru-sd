@@ -69,7 +69,7 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
