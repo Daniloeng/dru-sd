@@ -33,13 +33,17 @@ public class DRUService {
 	    public void deleteDRU(String id) {
 	        druRepository.delete(id);
 	    }
-
+	   
 	    public DRU getById(String id) {
 	        return druRepository.findOne(id);
 	    }
+	   
+	    public DRU getByCpf(String cpf) {
+	        return druRepository.findByCpf(cpf);
+	    }
 	    
-	    public DRU getByCPF(String cpf) {
-	        return druRepository.findOne(cpf);
+	    public DRU getByEmail(String email) {
+	        return druRepository.findByEmail(email);
 	    }	    
 
 		public List<DRU> listaDRU() {

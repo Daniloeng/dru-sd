@@ -23,36 +23,44 @@ public class DRUController {
     public List<DRU> listar() {
         return this.druService.listaDRU();
     }
-
+ 
+    
     @RequestMapping(value = "/dru/{id}", method = RequestMethod.GET)
     public DRU getById(@PathVariable String id) {
-        return this.druService.getById(id);
+       System.out.println("Aqui");
+    	return this.druService.getById(id);
     }
     
-    @RequestMapping(value = "/dru/{cpf}", method = RequestMethod.GET)
-    public DRU getByCPF(@PathVariable String cpf) {
-        return this.druService.getByCPF(cpf);
+    @RequestMapping(value = "/dru/{cpf}/cpf", method = RequestMethod.GET)
+    public DRU getByCpf(@PathVariable String cpf) {
+    	System.out.println("CPF: " + cpf);
+    	return this.druService.getByCpf(cpf);
+    }    
+    
+    @RequestMapping(value = "/dru/{email}/email", method = RequestMethod.GET)
+    public DRU getByEmail(@PathVariable String email) {
+    	System.out.println("E-mail: " + email);
+    	return this.druService.getByEmail(email);
     }
 
     @RequestMapping(value = "/dru/{page}/{count}", method = RequestMethod.GET)
     public Page<DRU> listaPaginada(@PathVariable int page, @PathVariable int count) {
-        return this.druService.listaPaginada(count, page);
+    	return this.druService.listaPaginada(count, page);
     }
 
     @RequestMapping(value = "/dru", method = RequestMethod.POST)
     public DRU salvar(@RequestBody DRU dru) {
-        return this.druService.salvarDRU(dru);
+    	return this.druService.salvarDRU(dru);
     }
 
     @RequestMapping(value = "/dru", method = RequestMethod.PUT)
     public DRU editar(@RequestBody DRU dru) {
-        return this.druService.salvarDRU(dru);
+    	return this.druService.salvarDRU(dru);
     }
 
     @RequestMapping(value = "/dru/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable String id) {
-        this.druService.deleteDRU(id);
+    	this.druService.deleteDRU(id);
     }
-
 
 }

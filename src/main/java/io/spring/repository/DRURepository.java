@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import io.spring.entity.DRU;
-import io.spring.entity.Perfil;
 
 public interface DRURepository extends MongoRepository<DRU, String> {
 
@@ -14,5 +13,6 @@ public interface DRURepository extends MongoRepository<DRU, String> {
     DRU findByEmail(String email);
     
     DRU findByNome(String nome);
-
+    
+    DRU findByCpf(String cpf);
 }
