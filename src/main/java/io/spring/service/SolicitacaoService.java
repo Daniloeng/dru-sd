@@ -24,7 +24,7 @@ public class SolicitacaoService {
 
     
     public List<Solicitacao> listaSolicitacaoPorSolicitante(String solicitante) {
-        return solicitacaoRepository.findBySolicitante(solicitante);
+        return solicitacaoRepository.findBySolicitanteOrderBySolicitadoEmDesc(solicitante);
     }
 
   

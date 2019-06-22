@@ -19,8 +19,10 @@ public interface SolicitacaoRepository extends MongoRepository<Solicitacao, Stri
     List<Solicitacao> findBySolicitante(String solicitante);
     List<Solicitacao> findBySolicitado(String solicitado);
     
+    List<Solicitacao> findBySolicitanteOrderBySolicitadoEmDesc(String solicitante);
+    List<Solicitacao> findBySolicitadoOrderBySolicitadoEmDesc(String solicitado);
+    
     List<Solicitacao> findBySolicitadoAndSituacaoOrderBySolicitadoEmDesc(String solicitado, String situacao);
 
-
-    
+   
 }
