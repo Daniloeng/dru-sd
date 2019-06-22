@@ -23,27 +23,27 @@ public class SolicitacaoService {
     SolicitacaoRepository solicitacaoRepository;
 
     
-    public List<Solicitacao> listaSolicitacaoPorSolicitante(String solicitante) {
-        return solicitacaoRepository.findBySolicitanteOrderBySolicitadoEmDesc(solicitante);
+    public List<Solicitacao> listaSolicitacaoPorSolicitante(String solicitanteCpf) {
+        return solicitacaoRepository.findBySolicitanteCpfOrderBySolicitadoEmDesc(solicitanteCpf);
     }
 
   
     
     
     
-    public List<Solicitacao> listaSolicitacaoNovaPorSolicitado(String solicitado) {
-        return solicitacaoRepository.findBySolicitadoAndSituacaoOrderBySolicitadoEmDesc(solicitado, "NOVA");
+    public List<Solicitacao> listaSolicitacaoNovaPorSolicitado(String solicitadoCpf) {
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "NOVA");
     }
  
     
-    public List<Solicitacao> listaSolicitacaoAprovadaPorSolicitado(String solicitado) {
-        return solicitacaoRepository.findBySolicitadoAndSituacaoOrderBySolicitadoEmDesc(solicitado, "APROVADA");
+    public List<Solicitacao> listaSolicitacaoAprovadaPorSolicitado(String solicitadoCpf) {
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "APROVADA");
     }
     
 
     
-    public List<Solicitacao> listaSolicitacaoNegadaPorSolicitado(String solicitado) {
-        return solicitacaoRepository.findBySolicitadoAndSituacaoOrderBySolicitadoEmDesc(solicitado, "NEGADA");
+    public List<Solicitacao> listaSolicitacaoNegadaPorSolicitado(String solicitadoCpf) {
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "NEGADA");
     }
         
         
@@ -65,24 +65,6 @@ public class SolicitacaoService {
         return solicitacaoRepository.findOne(id);
     }
     
-    
-
-    
-//
-//    public void aprovarSolicitacao(String id) {
-//    	solicitacaoRepository.aprovarSolicitacao(id);
-//    }
-//  
-//
-//    public void negarSolicitacao(String id) {
-//    	solicitacaoRepository.negarSolicitacao(id);
-//    }
-//    
-//
-//    public void marcarComoVisualizada(String id) {
-//    	solicitacaoRepository.marcarComoVisualizada(id);
-//    }
-//  
     
   
     

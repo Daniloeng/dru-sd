@@ -16,13 +16,13 @@ import io.spring.entity.Solicitacao;
 
 public interface SolicitacaoRepository extends MongoRepository<Solicitacao, String> {
 
-    List<Solicitacao> findBySolicitante(String solicitante);
-    List<Solicitacao> findBySolicitado(String solicitado);
+    List<Solicitacao> findBySolicitanteCpf(String solicitanteCpf);
+    List<Solicitacao> findBySolicitadoCpf(String solicitadoCpf);
     
-    List<Solicitacao> findBySolicitanteOrderBySolicitadoEmDesc(String solicitante);
-    List<Solicitacao> findBySolicitadoOrderBySolicitadoEmDesc(String solicitado);
+    List<Solicitacao> findBySolicitanteCpfOrderBySolicitadoEmDesc(String solicitanteCpf);
+    List<Solicitacao> findBySolicitadoCpfOrderBySolicitadoEmDesc(String solicitadoCpf);
     
-    List<Solicitacao> findBySolicitadoAndSituacaoOrderBySolicitadoEmDesc(String solicitado, String situacao);
+    List<Solicitacao> findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(String solicitadoCpf, String situacao);
 
    
 }
