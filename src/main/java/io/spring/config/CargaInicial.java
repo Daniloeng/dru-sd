@@ -8,13 +8,23 @@ package io.spring.config;
 
 import io.spring.entity.DRU;
 import io.spring.entity.Perfil;
+import io.spring.entity.Solicitacao;
 import io.spring.entity.Usuario;
 import io.spring.repository.DRURepository;
 import io.spring.repository.PerfilRepository;
+import io.spring.repository.SolicitacaoRepository;
 import io.spring.repository.UsuarioRepository;
+import io.spring.utils.DateUtils;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.Properties;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -35,6 +45,10 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 
     @Autowired
     PerfilRepository perfilRepository;
+    
+    @Autowired
+    SolicitacaoRepository solicitacaoRepository;
+    
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent e) {
@@ -97,6 +111,28 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 	    	usuarioRepository.save(new Usuario("testeautomatizadosd1@gmail.com", "testeautomatizadosd1@gmail.com", "417.645.300-12", "123", novosPerfis));	    	
 	    	
         }
+        
+        
+        
+        
+        List <Solicitacao> solicitacoes = solicitacaoRepository.findAll();
+
+        if (solicitacoes.isEmpty()) {
+        
+	        DateUtils dateUtils = new DateUtils();
+	        Date atual = dateUtils.getDataAtual();
+	        Date futuro = dateUtils.incrementaDataEmMeses(atual, 6);
+	        
+	 
+	       
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "851.673.080-89", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "154.571.120-80", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "376.689.950-30", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "120.709.000-02", "NOVA", "N", atual, futuro, atual));   
+	   
+        }
+        
+        
     }
 
 }
