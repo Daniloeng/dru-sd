@@ -123,12 +123,23 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 	        Date atual = dateUtils.getDataAtual();
 	        Date futuro = dateUtils.incrementaDataEmMeses(atual, 6);
 	        
-	 
-	       
+		       
 	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "851.673.080-89", "NOVA", "N", atual, futuro, atual));   
 	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "154.571.120-80", "NOVA", "N", atual, futuro, atual));   
 	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "376.689.950-30", "NOVA", "N", atual, futuro, atual));   
 	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "120.709.000-02", "NOVA", "N", atual, futuro, atual));   
+		       
+	        
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "120.709.000-02", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "154.571.120-80", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "376.689.950-30", "NOVA", "N", atual, futuro, atual));   
+	        
+		       
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "851.673.080-89", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "154.571.120-80", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "295.212.660-74", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "120.709.000-02", "NOVA", "N", atual, futuro, atual));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "799.458.970-71", "NOVA", "N", atual, futuro, atual));           
 	   
         }
         
