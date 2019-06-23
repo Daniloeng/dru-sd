@@ -36,8 +36,8 @@ public class SolicitacaoService {
     }
  
     
-    public List<Solicitacao> listaSolicitacaoAprovadaPorSolicitado(String solicitadoCpf) {
-        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "APROVADA");
+    public List<Solicitacao> listaSolicitacaoAutorizadaPorSolicitado(String solicitadoCpf) {
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "AUTORIZADA");
     }
     
 

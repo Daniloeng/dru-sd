@@ -47,9 +47,9 @@ public class SolicitacaoController {
     }
 
 
-    @RequestMapping(value = "/solicitacao/{cpf}/aprovadas/", method = RequestMethod.GET)
+    @RequestMapping(value = "/solicitacao/{cpf}/autorizadas/", method = RequestMethod.GET)
     public List<Solicitacao> listarSolicitacoesAprovadas(@PathVariable String cpf) {
-        return this.solicitacaoService.listaSolicitacaoAprovadaPorSolicitado(cpf) ;
+        return this.solicitacaoService.listaSolicitacaoAutorizadaPorSolicitado(cpf) ;
     }
 
 
