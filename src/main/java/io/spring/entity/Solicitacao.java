@@ -50,6 +50,13 @@ public class Solicitacao implements GrantedAuthority  {
     
   
 
+
+    public Solicitacao() {
+		super();		
+	}
+
+
+
     public Solicitacao(String solicitanteCpf, String solicitanteNome, String solicitanteEmail, String solicitadoCpf,
 			String solicitadoNome, String solicitadoEmail, Date solicitadoEm, Date expiraEm, Date modificacaoEm,
 			String situacao, String visualizado) {
@@ -69,6 +76,9 @@ public class Solicitacao implements GrantedAuthority  {
 		this.situacao = situacao;
 		this.visualizado = visualizado;
 	}
+
+
+  
 
 
 

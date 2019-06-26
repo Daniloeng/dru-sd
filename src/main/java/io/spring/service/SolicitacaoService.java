@@ -65,8 +65,6 @@ public class SolicitacaoService {
         return solicitacaoRepository.findOne(id);
     }
     
-    
-  
-    
+
 
 }
