@@ -8,13 +8,19 @@ package io.spring.config;
 
 import io.spring.entity.DRU;
 import io.spring.entity.Perfil;
+import io.spring.entity.Solicitacao;
 import io.spring.entity.Usuario;
 import io.spring.repository.DRURepository;
 import io.spring.repository.PerfilRepository;
+import io.spring.repository.SolicitacaoRepository;
 import io.spring.repository.UsuarioRepository;
+import io.spring.utils.DateUtils;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -35,6 +41,10 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 
     @Autowired
     PerfilRepository perfilRepository;
+    
+    @Autowired
+    SolicitacaoRepository solicitacaoRepository;
+    
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent e) {
@@ -97,6 +107,98 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 	    	usuarioRepository.save(new Usuario("testeautomatizadosd1@gmail.com", "testeautomatizadosd1@gmail.com", "417.645.300-12", "123", novosPerfis));	    	
 	    	
         }
+        
+        
+        
+        
+        List <Solicitacao> solicitacoes = solicitacaoRepository.findAll();
+
+        if (solicitacoes.isEmpty()) {
+        
+	        DateUtils dateUtils = new DateUtils();
+	        Date atual = dateUtils.getDataAtual();
+	        Date futuro = dateUtils.incrementaDataEmMeses(atual, 6);
+	           
+	        // Novas solicitações de consulta
+	        
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NOVA", "N"));   
+		       	        
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"799.458.970-71", "josé Renato", "renatojrna@fab.mil.br",			atual, futuro, atual, "NOVA", "N"));           
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 			atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 		atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "NOVA", "N"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"799.458.970-71", "josé Renato", "renatojrna@fab.mil.br",			atual, futuro, atual, "NOVA", "N"));           
+	   
+	        
+	        
+	           
+	        // Solicitações de consulta Autorizadas
+	        
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 		atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "AUTORIZADA", "S"));   
+	        
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "AUTORIZADA", "S"));   
+	             
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 			atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 		atual, futuro, atual, "AUTORIZADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "AUTORIZADA", "S"));    
+	        
+
+	        
+	        
+	        // Solicitações de consulta Negadas
+
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com",	"154.571.120-80", "Daniel", "danisantosalves@gmail.com",		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+
+	        
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com",	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("851.673.080-89", "Danilo", "daniloeng.ribeiro@gmail.com", 	"376.689.950-30", "Renan", "renanru_zao@hotmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "NEGADA", "S"));            	        
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"154.571.120-80", "Daniel", "danisantosalves@gmail.com", 			atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"295.212.660-74", "Gilson", "gilsonsilva.cintra@gmail.com", 		atual, futuro, atual, "NEGADA", "S"));   
+	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "NEGADA", "S"));            	        
+
+       }
+        
+        
     }
 
 }
