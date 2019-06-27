@@ -24,4 +24,5 @@ public interface SolicitacaoRepository extends MongoRepository<Solicitacao, Stri
     
     List<Solicitacao> findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(String solicitadoCpf, String situacao);
 
+    Solicitacao findById(String id);
 }

@@ -7,22 +7,15 @@
 package io.spring.controller;
 
 import io.spring.entity.Solicitacao;
-import io.spring.entity.Usuario;
-import io.spring.repository.UsuarioRepository;
 import io.spring.service.SolicitacaoService;
-import io.spring.service.UsuarioService;
 import io.spring.utils.DateUtils;
 
-import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -62,15 +55,15 @@ public class SolicitacaoController {
     
 
     
-    @RequestMapping(value = "/solicitacao/{id}/aprovar/", method = RequestMethod.GET)
+    @RequestMapping(value = "/solicitacao/aprovar/{id}/", method = RequestMethod.GET)
     public Solicitacao aprovarSolicitacao(@PathVariable String id) {
     	Solicitacao solicitacao = solicitacaoService.getById(id);
-    	solicitacao.setSituacao("APROVADA");
+    	solicitacao.setSituacao("AUTORIZADA");
         return this.solicitacaoService.salvaSolicitacao(solicitacao);
     }
 
 
-    @RequestMapping(value = "/solicitacao/{id}/negar/", method = RequestMethod.GET)
+    @RequestMapping(value = "/solicitacao/negar/{id}/", method = RequestMethod.GET)
     public Solicitacao negarSolicitacao(@PathVariable String id) {
     	Solicitacao solicitacao = solicitacaoService.getById(id);
     	solicitacao.setSituacao("NEGADA");
@@ -79,7 +72,7 @@ public class SolicitacaoController {
 
     
       
-    @RequestMapping(value = "/solicitacao/{id}/marcar/", method = RequestMethod.GET)
+    @RequestMapping(value = "/solicitacao/marcar/{id}/", method = RequestMethod.GET)
     public Solicitacao marcarComoVisualizada(@PathVariable String id) {
     	Solicitacao solicitacao = solicitacaoService.getById(id);
     	solicitacao.setVisualizado("S");
@@ -93,42 +86,30 @@ public class SolicitacaoController {
    
     
 
-    @RequestMapping(value = "/solicitacao/{solicitanteCpf}/{solicitadoCpf}/", method = RequestMethod.GET)
-    public Solicitacao salvar( @PathVariable String solicitanteCpf, @PathVariable String solicitadoCpf ) {
-
-    	
-    	System.out.println("1-solicitacao");
-        System.out.println(solicitanteCpf);
-        
-       	
-    	System.out.println("1-solicitado");
-        System.out.println(solicitadoCpf);
+    @RequestMapping(value = "/solicitacao/criar/{solicitanteCpf}/{solicitanteNome}/{solicitanteEmail}/{solicitadoCpf}/{solicitadoNome}/{solicitadoEmail}/", method = RequestMethod.GET)
+    public Solicitacao salvar( @PathVariable String solicitanteCpf,  @PathVariable String solicitanteNome,  @PathVariable String solicitanteEmail, 
+    						   @PathVariable String solicitadoCpf, @PathVariable String solicitadoNome, @PathVariable String solicitadoEmail ) {
         
     	DateUtils dateUtils = new DateUtils();
         Date atual = dateUtils.getDataAtual();
         Date futuro = dateUtils.incrementaDataEmMeses(atual, 6);    
-        
-        
-        
-        
-        
+                
         
         Solicitacao solicitacao =  new Solicitacao();
     	
         solicitacao.setSolicitanteCpf(solicitanteCpf);
-        solicitacao.setSolicitanteNome(solicitanteCpf);
-        solicitacao.setSolicitanteEmail(solicitanteCpf);
+        solicitacao.setSolicitanteNome(solicitanteNome);
+        solicitacao.setSolicitanteEmail(solicitanteEmail);
         
         solicitacao.setSolicitadoCpf(solicitadoCpf);
-        solicitacao.setSolicitadoNome(solicitadoCpf);
-        solicitacao.setSolicitadoEmail(solicitadoCpf);
+        solicitacao.setSolicitadoNome(solicitadoNome);
+        solicitacao.setSolicitadoEmail(solicitadoEmail);
         
         solicitacao.setSolicitadoEm(atual);
         solicitacao.setModificacaoEm(atual);
         solicitacao.setExpiraEm(futuro);
         solicitacao.setSituacao("NOVA");
         solicitacao.setVisualizado("N");
-
         
         return this.solicitacaoService.salvaSolicitacao(solicitacao);
     }
