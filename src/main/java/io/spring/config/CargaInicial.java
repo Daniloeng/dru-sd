@@ -111,6 +111,7 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
         
         
         
+        
         List <Solicitacao> solicitacoes = solicitacaoRepository.findAll();
 
         if (solicitacoes.isEmpty()) {

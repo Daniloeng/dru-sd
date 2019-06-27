@@ -1,10 +1,7 @@
 package io.spring.entity;
 
 import java.util.Date;
-
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,7 +10,9 @@ import org.springframework.security.core.GrantedAuthority;
 @Document(collection = "solicitacao")
 public class Solicitacao implements GrantedAuthority  {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     private String id;
   
     @Field("solicitante_cpf")
@@ -210,6 +209,26 @@ public class Solicitacao implements GrantedAuthority  {
 	@Override
     public String getAuthority() {
         return id;
-    }	 
+    }
+
+
+
+	@Override
+	public String toString() {
+		return "Solicitacao [id=" + id + ", solicitanteCpf=" + solicitanteCpf + ", solicitanteNome=" + solicitanteNome
+				+ ", solicitanteEmail=" + solicitanteEmail + ", solicitadoCpf=" + solicitadoCpf + ", solicitadoNome="
+				+ solicitadoNome + ", solicitadoEmail=" + solicitadoEmail + ", solicitadoEm=" + solicitadoEm
+				+ ", expiraEm=" + expiraEm + ", modificacaoEm=" + modificacaoEm + ", situacao=" + situacao
+				+ ", visualizado=" + visualizado + "]";
+	}
+
+
+
+	
+	
+	
+	
+	
+	
 
 }

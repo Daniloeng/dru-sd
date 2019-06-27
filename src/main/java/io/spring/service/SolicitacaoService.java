@@ -10,9 +10,6 @@ import io.spring.entity.Solicitacao;
 import io.spring.repository.SolicitacaoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
@@ -62,7 +59,7 @@ public class SolicitacaoService {
     
 
     public Solicitacao getById(String id) {
-        return solicitacaoRepository.findOne(id);
+        return solicitacaoRepository.findById(id);
     }
     
 
