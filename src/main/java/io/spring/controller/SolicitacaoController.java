@@ -57,33 +57,33 @@ public class SolicitacaoController {
     
     @RequestMapping(value = "/solicitacao/aprovar/{id}/", method = RequestMethod.GET)
     public Solicitacao aprovarSolicitacao(@PathVariable String id) {
+    	
+       	DateUtils dateUtils = new DateUtils();
+        Date atual = dateUtils.getDataAtual();
+     	
     	Solicitacao solicitacao = solicitacaoService.getById(id);
     	solicitacao.setSituacao("AUTORIZADA");
+    	solicitacao.setModificacaoEm(atual);
+    	
         return this.solicitacaoService.salvaSolicitacao(solicitacao);
     }
 
+    
 
     @RequestMapping(value = "/solicitacao/negar/{id}/", method = RequestMethod.GET)
     public Solicitacao negarSolicitacao(@PathVariable String id) {
+    	
+       	DateUtils dateUtils = new DateUtils();
+        Date atual = dateUtils.getDataAtual();
+ 
     	Solicitacao solicitacao = solicitacaoService.getById(id);
     	solicitacao.setSituacao("NEGADA");
+    	solicitacao.setModificacaoEm(atual);
+    	
         return this.solicitacaoService.salvaSolicitacao(solicitacao);
     }
 
-    
-      
-    @RequestMapping(value = "/solicitacao/marcar/{id}/", method = RequestMethod.GET)
-    public Solicitacao marcarComoVisualizada(@PathVariable String id) {
-    	Solicitacao solicitacao = solicitacaoService.getById(id);
-    	solicitacao.setVisualizado("S");
-        return this.solicitacaoService.salvaSolicitacao(solicitacao);
-    }
-
-    
-    
-
-    
-   
+ 
     
 
     @RequestMapping(value = "/solicitacao/criar/{solicitanteCpf}/{solicitanteNome}/{solicitanteEmail}/{solicitadoCpf}/{solicitadoNome}/{solicitadoEmail}/", method = RequestMethod.GET)
@@ -116,9 +116,12 @@ public class SolicitacaoController {
 
 
     
+    
+    
     @RequestMapping(value = "/solicitacao/{id}", method = RequestMethod.DELETE)
     public void deletar(@PathVariable String id) {
-        this.solicitacaoService.deletaSolicitacao(id);
+    	Solicitacao solicitacao = solicitacaoService.getById(id);
+        this.solicitacaoService.deletaSolicitacao(solicitacao);
     }
 
   

@@ -34,13 +34,13 @@ public class SolicitacaoService {
  
     
     public List<Solicitacao> listaSolicitacaoAutorizadaPorSolicitado(String solicitadoCpf) {
-        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "AUTORIZADA");
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderByModificacaoEmDesc(solicitadoCpf, "AUTORIZADA");
     }
     
 
     
     public List<Solicitacao> listaSolicitacaoNegadaPorSolicitado(String solicitadoCpf) {
-        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderBySolicitadoEmDesc(solicitadoCpf, "NEGADA");
+        return solicitacaoRepository.findBySolicitadoCpfAndSituacaoOrderByModificacaoEmDesc(solicitadoCpf, "NEGADA");
     }
         
         
@@ -52,8 +52,8 @@ public class SolicitacaoService {
     }
 
  
-    public void deletaSolicitacao(String id) {
-    	solicitacaoRepository.delete(id);
+    public void deletaSolicitacao(Solicitacao solicitacao) {
+    	solicitacaoRepository.delete(solicitacao);
     }
       
     
