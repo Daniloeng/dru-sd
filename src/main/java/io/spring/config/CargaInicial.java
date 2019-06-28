@@ -198,17 +198,6 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
 	        solicitacaoRepository.save(new Solicitacao("376.689.950-30", "Renan", "renanru_zao@hotmail.com", 	"120.709.000-02", "João Lemos", "joaojol@fab.mil.br", 				atual, futuro, atual, "NEGADA", "S"));            	        
 
        }
-	   
-		
-		//28-06-2019
-		//Criação de NOVOS usuários proprietários de DRU - Login igual o Email
-		Perfil perfilOWNER = perfilRepository.findByNome("ROLE_OWNER");
-
-		List<Perfil> novosPerfis = new ArrayList<>();
-		
-		novosPerfis.add(perfilOWNER);
-
-		usuarioRepository.save(new Usuario("arlindoflavio@gmail.com", "arlindoflavio@gmail.com", "479.614.290-85", "123", novosPerfis))	   
         
         
     }
