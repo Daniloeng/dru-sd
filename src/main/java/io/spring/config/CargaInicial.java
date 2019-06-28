@@ -200,13 +200,13 @@ public class CargaInicial implements ApplicationListener<ContextRefreshedEvent> 
        }
 	   
 		//Criação de NOVO usuário(s) proprietário(s) de DRU - Login igual o Email
-		Perfil perfilOWNER = perfilRepository.findByNome("ROLE_OWNER");
+		/*Perfil perfilOWNER = perfilRepository.findByNome("ROLE_OWNER");
 
 		List<Perfil> novosPerfis = new ArrayList<>();
 		
 		novosPerfis.add(perfilOWNER);
 
-		usuarioRepository.save(new Usuario("arlindoflavio@gmail.com", "arlindoflavio@gmail.com", "479.614.290-85", "123", novosPerfis));
+		usuarioRepository.save(new Usuario("arlindoflavio@gmail.com", "arlindoflavio@gmail.com", "479.614.290-85", "123", novosPerfis));*/
         
         
     }
